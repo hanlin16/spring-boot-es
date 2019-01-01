@@ -1,10 +1,8 @@
 package org.githup.es.config;
 
-import java.net.InetAddress;
-
 import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.settings.Settings;
-import org.elasticsearch.common.transport.InetSocketTransportAddress;
+import org.elasticsearch.common.transport.TransportAddress;
 import org.elasticsearch.transport.client.PreBuiltTransportClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +11,8 @@ import org.springframework.beans.factory.FactoryBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
+
+import java.net.InetAddress;
 
 /**
  * 数据配置，进行初始化操作
@@ -85,7 +85,7 @@ public class ESConfiguration implements FactoryBean<TransportClient>, Initializi
 					.build();
 
 			client = new PreBuiltTransportClient(esSetting);
-			InetSocketTransportAddress inetSocketTransportAddress = new InetSocketTransportAddress(InetAddress.getByName(hostName), Integer.valueOf(port));
+			TransportAddress inetSocketTransportAddress = new TransportAddress(InetAddress.getByName(hostName), Integer.valueOf(port));
 			client.addTransportAddresses(inetSocketTransportAddress);
 
 		} catch (Exception e) {

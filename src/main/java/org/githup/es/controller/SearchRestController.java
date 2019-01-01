@@ -115,7 +115,7 @@ public class SearchRestController extends BaseController{
 			return generateResponseVo(ESWebStatusEnum.FAILED, null);
 		}
 		//搜索具体的数据来源
-		Map<String, Object> returnMap = esSearchService.searchDataByParam("bond2018-03-15", "bond", "AWIoxzdzUfSIA3djz-ZK");
+		Map<String, Object> returnMap = esSearchService.searchDataByParam("suggest_term_index", "tech", "yK8qCGgBend7cIozBMQz");
 		return generateResponseVo(ESWebStatusEnum.SUCCESS, returnMap);
 	}
 	

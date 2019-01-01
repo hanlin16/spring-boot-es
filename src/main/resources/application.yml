@@ -1,0 +1,8 @@
+server:
+  port: 8902
+elasticsearch:
+  cluster:
+    name: my-application
+  port: 9300
+  ip: 192.168.30.151
+  pool: 5
